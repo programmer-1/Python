@@ -1,0 +1,61 @@
+def CountFun(name1, name2):
+
+    count = len(name1) + len(name2)
+    for let1 in name1:
+        for let2 in name2:
+            if let1 == let2:
+               print(let1 + let2)
+               count -=2
+               name2.remove(let1)
+               break
+            else:
+                continue
+    return count
+
+def Process(count):
+    print("Calculating your result....")
+    print("Please wait...")
+    flames = ['F','L','A','M','E','S']
+    Count = int(count)
+    length = len(flames) - 1
+    position =int(0)
+
+    while((length -1) >= 0):
+        for i in range(count-1):
+            if position > length:
+                position = 0
+            if position == length:
+                position = 0
+            else:
+                position = position + 1
+        length = length - 1
+        a = flames[position]
+        flames.remove(a)
+    result = str(flames[0])
+    print("Your Result : ")
+    if(result == 'F'):
+        print("FRIEND")
+    else:
+        if(result == 'L'):
+           print("LOVE")
+        else:
+            if(result == "A"):
+               print("AFFECTION")
+            else:
+                if (result == 'M'):
+                   print("MARRIAGE")
+                else:
+                    if (result == 'E'):
+                       print("ENEMY")
+                    else:
+                        print("SISTER")
+
+
+
+name1 = list(input("Enter your Name : ").lower())
+
+name2 = list(input("Enter your Crush Name : ").lower())
+
+count = int(CountFun(name1, name2))
+print(count)
+Process(count)
